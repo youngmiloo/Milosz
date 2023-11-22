@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Power Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Power Calculator</h1>
+
+  <form id="powerForm">
+    <label for="base">Enter the base (x):</label>
+    <input type="number" id="base" required>
+
+    <label for="exponent">Enter the exponent (n):</label>
+    <input type="number" id="exponent" required>
+
+    <button type="button" onclick="calculatePower()">Calculate Power</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    function pow(x, n) {
+      return Math.pow(x, n);
+    }
+
+    function calculatePower() {
+      var base = parseFloat(document.getElementById('base').value);
+      var exponent = parseFloat(document.getElementById('exponent').value);
+
+      if (!isNaN(base) && !isNaN(exponent)) {
+        var result = pow(base, exponent);
+        document.getElementById('result').innerHTML = `Result: ${result}`;
+      } else {
+        document.getElementById('result').innerHTML = 'Please enter valid numbers for base and exponent.';
+      }
+    }
+  </script>
+
+</body>
+</html>
